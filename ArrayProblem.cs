@@ -62,14 +62,14 @@ namespace ProblemPractise
         public List<int> StepwiseSelectionSort(List<int> A)
         {
             List<int> result = new List<int>();
-            for(int i=0;i<A.Count;i++)
-            {
-                int index = A. (Math. (i, A.Count - 1));                
-                int swap = A[i];
-                A[i] = A[index];
-                A[index] = swap;
-                result.Add(index);
-            }
+            //for(int i=0;i<A.Count;i++)
+            //{
+            //    int index = A. (Math. (i, A.Count - 1));                
+            //    int swap = A[i];
+            //    A[i] = A[index];
+            //    A[index] = swap;
+            //    result.Add(index);
+            //}
             return result;
         }
 
