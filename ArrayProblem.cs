@@ -37,6 +37,45 @@ namespace ProblemPractise
            
             return mergeHelper.mergeSort(A,left,right);
         }
+        int mod = 1000000007;
+        int count = 0;
+        public int InversionCount1(List<int> A)
+        {
+            MergeSort(A, 0, A.Count - 1);
+            return count;
+        }
+        public void MergeSort(List<int> arr, int start, int end)
+        {
+            if (start >= end) return;
+            int mid = (start + end) / 2;
+            MergeSort(arr, start, mid);
+            MergeSort(arr, mid + 1, end);
+            Merge(arr, start, mid, end);
+        }
+        public void Merge(List<int> A, int start, int mid, int end)
+        {
+            List<int> left = new List<int>();
+            List<int> right = new List<int>();
+            for (int i = start; i < mid + 1; i++)
+                left.Add(A[i]);
+            for (int i = mid + 1; i < end + 1; i++)
+                right.Add(A[i]);
+            int ptr1 = 0, ptr2 = 0, index = start; // COMMON MISTAKE : index =0 , this will fail for input : 45 10 15 25 50
+            while (ptr1 < left.Count && ptr2 < right.Count)
+            {
+                if (left[ptr1] <= right[ptr2])
+                    A[index++] = left[ptr1++];
+                else
+                {
+                    A[index++] = right[ptr2++];
+                    count = (count + (left.Count - ptr1)) % mod; // COMMON MISTAKE : mid-ptr1
+                }
+            }
+            while (ptr1 < left.Count)
+                A[index++] = left[ptr1++];
+            while (ptr2 < right.Count)
+                A[index++] = right[ptr2++];
+        }
         public List<int> BaggerTemple(int A, List<List<int>> B)
         {
             List<int> result = new List<int>();
