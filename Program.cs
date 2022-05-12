@@ -42,11 +42,17 @@ namespace ProblemPractise
 
             //var ans = tp.buildTree(A, B);
 
-            MathsProblems mp = new MathsProblems();
-            List<int> A = new List<int>(new List<int> { 2, 3, 4, 5 });
+            //MathsProblems mp = new MathsProblems();
+            //List<int> A = new List<int>(new List<int> { 2, 3, 4, 5 });
 
 
-            var ans = mp.CountOfDivisors(A);
+            //var ans = mp.CountOfDivisors(A);
+
+
+            HashingProblems hp = new HashingProblems();
+            List<int> A = new List<int>(new List<int> { 5, 10, 20, 100, 105 });
+
+            var ans = hp.SubarrayWithGivenSum(A, 110);
 
             ans.ForEach(x => Console.WriteLine("Output:" + x));
             //Console.WriteLine("Output: "+ans);
