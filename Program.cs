@@ -50,12 +50,13 @@ namespace ProblemPractise
 
 
             HashingProblems hp = new HashingProblems();
-            List<int> A = new List<int>(new List<int> { 5, 10, 20, 100, 105 });
+            List<int> A = new List<int>(new List<int> { 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1 });
 
-            var ans = hp.SubarrayWithGivenSum(A, 110);
+            //var ans = hp.SubarrayWithGivenSum(A, 110);
+            var ans = hp.ContiguousArray(A);
 
-            ans.ForEach(x => Console.WriteLine("Output:" + x));
-            //Console.WriteLine("Output: "+ans);
+            //ans.ForEach(x => Console.WriteLine("Output:" + x));
+            Console.WriteLine("Output: "+ans);
         }
     }
 }
