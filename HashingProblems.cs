@@ -65,27 +65,41 @@ namespace ProblemPractice
         public int ContiguousArray(List<int> A)
         {
             Dictionary<int, int> prefixSumarr = new Dictionary<int, int>();
-            int result = 0, len =0;
-            if (A[0] == 0)
-                A[0] = -1;
-            //prefix array
-            for (int i=1;i<A.Count;i++)
+            prefixSumarr.Add(0, -1);
+            int count = 0, maxlen = 0;
+            
+            for (int i=0;i < A.Count; i++) 
             {
-                if (A[i] == 0)
-                    A[i] = -1;
-                A[i] = A[i-1] + A[i];   
-            }
-            for(int i=0;i < A.Count; i++) 
-            {
-                if(prefixSumarr.ContainsKey(A[i]))
-                    len = i - prefixSumarr[A[i]];
+                count = count + (A[i] == 1 ? 1 : -1);
+                if (prefixSumarr.ContainsKey(count))
+                    maxlen = Math.Max(maxlen, (i - prefixSumarr[count]));
                 else
                 {
-                    prefixSumarr.Add(A[i], i);
+                    prefixSumarr.Add(count, i);
                 }
-                result = Math.Max(len, result);
             }
-            return result;
+            return maxlen;
         }
+        //Pairs With Given Xor
+        public int PairsWithGivenXor (List<int> A, int B)
+        {
+            int count = 0;
+            Dictionary<int, int> hashmap = new Dictionary<int, int>();
+            for (int i = 0; i < A.Count; i++)
+            {
+                hashmap.Add(A[i], 0);
+            }
+            for (int i = 0; i < A.Count; i++)
+            {
+                int xorValue = A[i] ^ B;
+                if (hashmap.ContainsKey(xorValue) && hashmap[xorValue] == 0)
+                {
+                    count++;
+                    hashmap[A[i]] = 1;
+                }
+            }
+            return count;
+        }
+
     }
 }
