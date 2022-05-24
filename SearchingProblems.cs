@@ -56,5 +56,57 @@ namespace ProblemPractice
                 ans = n;
             return ans;
         }
+        //Rotated Sorted Array Search
+        public int RotatedSortedArraySearch(List<int> A, int k)
+        {
+            int low = 0, high = A.Count - 1;
+            while (low <= high)
+            {
+                if (low == high && A[low] != k) return -1;
+                int mid = (low + high) / 2;
+                if (A[mid] == k) return mid;
+                if (A[low] < A[mid])
+                {
+                    if (A[low] <= k && k <= A[mid])
+                        high = mid - 1;
+                    else
+                        low = mid + 1;
+                }
+                else if (A[mid] < A[high])
+                {
+                    if (A[mid] <= k && k <= A[high])
+                        low = mid + 1;
+                    else
+                        high = mid - 1;
+                }
+            }
+            return -1;
+        }
+        //Find a peak element
+        public int SearchPeakElement(List<int> A)
+        {
+            int low = 0, high = A.Count - 1, ans = 0;
+            if(A.Count==1)
+                return A[0];
+            if(A[0]>A[1])
+                return A[0];
+            if(A[A.Count-1]>A[A.Count - 2])
+                return A[A.Count-1];
+            while(low <= high)
+            {
+                int mid = (low + high) / 2;
+                if (A[mid] >= A[mid - 1] && A[mid] >= A[mid + 1])
+                {
+                    ans = A[mid];
+                    return A[mid];
+                }
+                if (A[mid - 1] > A[mid])
+                    high = mid - 1;
+                else
+                    low = mid + 1;
+            }
+            return ans;
+        }
     }
 }
+
