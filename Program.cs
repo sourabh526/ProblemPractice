@@ -12,6 +12,8 @@ namespace ProblemPractise
             //var ans = sp.reverseString("this is blue");
             //var ans = sp.rotateString("jadgbxjesitcdbnbkftdv", 29);
             //var ans = sp.periodString("aaaa");
+            //var ans = sp.isBase64("91TFAgR9cMwVe8sJk1CvpZty3Z6Q7Vwy4Y/vRFvwGF1oMl6VHusFBpWBRYaf44qo");
+            //var ans = sp.isBase64("sddaa sdsd");
 
 
             //ArrayProblem ap = new ArrayProblem();
@@ -58,19 +60,26 @@ namespace ProblemPractise
             //var ans = hp.PairsWithGivenXor(A, B);
 
 
-            SearchingProblems search = new SearchingProblems();
+            //SearchingProblems search = new SearchingProblems();
             //List<int> A = new List<int>(new List<int> { 1, 3, 5, 6 });
             //int B = 4;
 
-            List<int> A = new List<int>(new List<int> { 5, 17, 100, 11 });
-            //int B = 10;
+            //List<int> A = new List<int>(new List<int> { 1,1,2 });
+            //int B = 1;
 
             //var ans = search.SearchSingleElement(A);
             //var ans = search.searchInsert(A,B);
             //var ans = search.RotatedSortedArraySearch(A, B);
-            var ans = search.SearchPeakElement(A);
+            //var ans = search.SearchPeakElement(A);
+            //var ans = search.searchRange(A, B);
+            //var ans = search.AthMagicalNumber(14, 10, 12);
 
             //ans.ForEach(x => Console.WriteLine("Output:" + x));
+
+            Solution solution = new Solution();
+            List<int> A = new List<int>(new List<int> { 2, 1, 4, 3, 2 });
+            int B = 2;
+            var ans = solution.kthsmallest(A, B);
             Console.WriteLine("Output: "+ans);
         }
     }

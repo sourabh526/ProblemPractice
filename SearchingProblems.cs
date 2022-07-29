@@ -107,6 +107,64 @@ namespace ProblemPractice
             }
             return ans;
         }
+        //Search for a Range
+        public List<int> searchRange(List<int> A, int k)
+        {
+            List<int> ans = new List<int>();
+            int low = 0, high = A.Count - 1;
+            int[] obj = { -1, -1 };
+            if (A.Count == 1)
+            {
+                int[] obj1 = { 0, 0 };
+                ans.AddRange(obj1);
+                return ans;
+            }
+            while (low <= high)
+            {               
+                int mid = (low + high) / 2;
+                if (A[mid] == k && (A[mid]==0 || k > A[mid-1]))
+                {
+                    ans.Add(mid);
+                    break;
+                }
+                else if (k > A[mid]) low = mid + 1;                
+                else high = mid - 1;
+            }
+            low = 0; high = A.Count - 1;
+            while(low <= high)
+            {
+                int mid = (low + high) / 2;
+                if (((mid == A.Count - 1) || k < A[mid + 1]) && A[mid]== k)
+                {
+                    ans.Add(mid);
+                    break;
+                }
+                else if(k < A[mid]) high = mid - 1;
+                else low = mid +1;
+            }
+            if(ans.Count == 0)
+                ans.AddRange(obj);
+            return ans;
+        }
+        //Ath Magical Number
+        public int AthMagicalNumber(int A, int B, int C)
+        {
+            int low = 0, high = Math.Min(B, C) * A, ans=0;
+            int mod = 1000000007;
+            while (low<=high)
+            {
+                int mid = (low + high) / 2;
+                int totalMagicNum = (mid / B) + (mid / C) - (mid / (B * C));
+                if(totalMagicNum >= A)
+                {
+                    ans = mid;
+                    high = mid - 1;
+                }
+                else
+                    low = mid + 1;
+            }
+            return ans% mod;
+        }
     }
 }
 
