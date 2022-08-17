@@ -21,7 +21,7 @@ namespace ProblemPractise
                 quickSort(arr, pi + 1, high);
             }
         }
-        public int partition(List<int> arr, int low, int high)
+        private int partition(List<int> arr, int low, int high)
         {
             // pivot
             int pivot = arr[high];
@@ -48,7 +48,7 @@ namespace ProblemPractise
             swap(arr, i + 1, high);
             return (i + 1);
         }
-        public void swap(List<int> arr, int i, int j)
+        private void swap(List<int> arr, int i, int j)
         {
             int temp = arr[i];
             arr[i] = arr[j];

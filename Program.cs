@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ProblemPractise
+namespace ProblemPractice
 {
     internal class Program
     {
@@ -76,11 +76,42 @@ namespace ProblemPractise
 
             //ans.ForEach(x => Console.WriteLine("Output:" + x));
 
-            Solution solution = new Solution();
-            List<int> A = new List<int>(new List<int> { 2, 1, 4, 3, 2 });
-            int B = 2;
-            var ans = solution.kthsmallest(A, B);
-            Console.WriteLine("Output: "+ans);
+            //Solution solution = new Solution();
+            //List<int> A = new List<int>(new List<int> { 2, 1, 4, 3, 2 });
+            //int B = 2;
+            //var ans = solution.kthsmallest(A, B);
+
+
+            //StackProblem stackProblem = new StackProblem();
+            //List<int> A = new List<int>(new List<int> { 5, 17, 100, 11 });
+            //var ans = stackProblem.sortStack(A);
+
+            LinkedListProblem llp = new LinkedListProblem();
+            ListNode node1 = new ListNode(1);
+            //ListNode node2 = new ListNode(2);
+            //ListNode node3 = new ListNode(3);
+            //ListNode node4 = new ListNode(4);
+            //ListNode node5 = new ListNode(5);
+            //ListNode node6 = new ListNode(6);
+
+            ListNode head = node1;
+            head.next = null;
+            //head.next = node2;
+            //node2.next = node3;
+            //node3.next = node4;
+            //node4.next = node5;
+            //node5.next = node6;
+            //node6.next = null;
+
+            var ans = llp.removeNthFromEnd(head, 1);
+            ListNode current = ans;
+            while (current != null)
+            {
+                Console.WriteLine(current.val);
+                current = current.next;
+            }
+
+            //ans.ForEach(x => Console.WriteLine("Output:" + x));
         }
     }
 }
